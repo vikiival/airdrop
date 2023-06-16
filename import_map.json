@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "@/": "./",
+    "dotenv/": "https://deno.land/std@0.190.0/dotenv/",
+    "polkadot": "https://deno.land/x/polkadot@0.2.41",
+    "polkadot/": "https://deno.land/x/polkadot@0.2.41/",
+    "io/": "https://deno.land/std@0.190.0/io/"
+  }
+}
