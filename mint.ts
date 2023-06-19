@@ -34,6 +34,7 @@ const buildBatch = (api: ApiPromise, calls: Call[]) => {
 }
 
 export const submit = async (api: ApiPromise, calls: Call[]) => {
+  console.log('Sending', calls.length, 'transactions');
   const batch = buildBatch(api, calls)
   const account = buildAccount()
   const tx = await batch.signAndSend(account)
