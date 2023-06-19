@@ -18,13 +18,27 @@ const buildAccount = () => {
   return pair
 }
 
+export const me = () => {
+  return buildAccount().address
+}
+
 export const mintTo = (api: ApiPromise, collectionId: string, nextId: string, address: string) => {
   const create = api.tx.nfts.mint(collectionId, nextId, address, undefined)
   return create
 }
 
+export const uniqueMintTo = (api: ApiPromise, collectionId: string, nextId: string, address: string) => {
+  const create = api.tx.uniques.mint(collectionId, nextId, address)
+  return create
+}
+
 export const setMetadata = (api: ApiPromise, collectionId: string, nextId: string, metadata: string) => {
   const set = api.tx.nfts.setMetadata(collectionId, nextId, metadata)
+  return set
+}
+
+export const uniqueSetMetadata = (api: ApiPromise, collectionId: string, nextId: string, metadata: string) => {
+  const set = api.tx.uniques.setMetadata(collectionId, nextId, metadata, false)
   return set
 }
 
