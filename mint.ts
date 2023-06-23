@@ -6,6 +6,7 @@ import { SubmittableExtrinsic } from "polkadot/api/types/index.ts";
 const keyring = new Keyring({ ss58Format: 2 })
 
 export type Call = SubmittableExtrinsic<'promise'>
+export type Amount = string | number | bigint
 
 export const magicApi = () => {
   const provider = new HttpProvider(BASE_URL)
@@ -22,6 +23,7 @@ export const me = () => {
   return buildAccount().address
 }
 
+// MINT
 export const mintTo = (api: ApiPromise, collectionId: string, nextId: string, address: string) => {
   const create = api.tx.nfts.mint(collectionId, nextId, address, undefined)
   return create
@@ -32,6 +34,7 @@ export const uniqueMintTo = (api: ApiPromise, collectionId: string, nextId: stri
   return create
 }
 
+// SET METADATA
 export const setMetadata = (api: ApiPromise, collectionId: string, nextId: string, metadata: string) => {
   const set = api.tx.nfts.setMetadata(collectionId, nextId, metadata)
   return set
@@ -39,6 +42,17 @@ export const setMetadata = (api: ApiPromise, collectionId: string, nextId: strin
 
 export const uniqueSetMetadata = (api: ApiPromise, collectionId: string, nextId: string, metadata: string) => {
   const set = api.tx.uniques.setMetadata(collectionId, nextId, metadata, false)
+  return set
+}
+
+// SET PRICE
+export const list = (api: ApiPromise, collectionId: string, nextId: string, amount: Amount) => {
+  const set = api.tx.nfts.setPrice(collectionId, nextId, amount, undefined)
+  return set
+}
+
+export const uniqueList = (api: ApiPromise, collectionId: string, nextId: string, amount: Amount) => {
+  const set = api.tx.uniques.setPrice(collectionId, nextId, amount, undefined)
   return set
 }
 

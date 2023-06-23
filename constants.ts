@@ -6,3 +6,4 @@ export const KEYRING_SEED = Deno.env.get('KEYRING_SEED')!;
 // export const FILE_NAME = Deno.env.get('FILE_NAME')!;
 export const METADATA = Deno.env.get('METADATA')!;
 export const COUNT = Deno.env.get('COUNT')!;
+export const START_INDEX = Deno.env.get('START_INDEX')!;

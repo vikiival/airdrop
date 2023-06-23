@@ -1,4 +1,4 @@
-import { COLLECTION_ID, COUNT } from "@/constants.ts"
+import { COLLECTION_ID, COUNT, START_INDEX } from "@/constants.ts"
 import { Call, me, uniqueMintTo } from "@/mint.ts"
 import { type ApiPromise } from 'polkadot/api/mod.ts'
 
@@ -7,6 +7,7 @@ export function massMint(api: ApiPromise): Call[] {
   const calls: Call[] = [];
 
   const count = parseInt(COUNT);
+  const min = parseInt(START_INDEX) || 0;
 
   if (!count) {
     console.error('COUNT is not a number');
@@ -15,7 +16,9 @@ export function massMint(api: ApiPromise): Call[] {
 
   const address = me();
 
-  for (let key = 0; key < count; key++) {
+  const max = min + count;
+
+  for (let key = min; key < max; key++) {
     const index = key.toString()
     const mint = uniqueMintTo(api, COLLECTION_ID, index, address);
     calls.push(mint);
