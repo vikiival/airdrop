@@ -52,5 +52,5 @@ export const submit = async (api: ApiPromise, calls: Call[]) => {
   const batch = buildBatch(api, calls)
   const account = buildAccount()
   const tx = await batch.signAndSend(account)
-  return tx
+  return tx.toHex()
 }
