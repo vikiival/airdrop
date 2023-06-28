@@ -11,4 +11,4 @@ const calls: Call[] = massMint(api);
 const hash = await submit(api, calls);
 
 console.log('Transaction hash:', hash);
-console.log(`https://statemine.subscan.io/extrinsic/${hash}`);
+console.log(`https://statemint.subscan.io/extrinsic/${hash}`);
