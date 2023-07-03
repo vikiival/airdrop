@@ -56,6 +56,11 @@ export const uniqueList = (api: ApiPromise, collectionId: string, nextId: string
   return set
 }
 
+export const asSystemRemark = (api: ApiPromise, remark: string) => {
+  const set = api.tx.system.remark(remark)
+  return set
+}
+
 const buildBatch = (api: ApiPromise, calls: Call[]) => {
   const batch = api.tx.utility.batchAll(calls)
   return batch  
