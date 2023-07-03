@@ -4,6 +4,6 @@ const file = await Deno.readTextFile("./drop.txt")
 
 // line starts with a dash and optionaly a space
 export const addressList = file.split("\n")
-  .map((line) => line.replace(/^- ?/, ""))
+  .map((line) => line.replace(/^- ?/, "").trim())
   .filter((line) => isAddress(line))
 
