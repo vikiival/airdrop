@@ -26,3 +26,4 @@ List of public nodes:
 - STATEMINE - https://kusama-asset-hub-rpc.polkadot.io/
 - STATEMINT - https://polkadot-asset-hub-rpc.polkadot.io/
 - WESTMINT - https://westend-asset-hub-rpc.polkadot.io/
+- KUSAMA - https://kusama-rpc.polkadot.io
