@@ -27,3 +27,11 @@ List of public nodes:
 - STATEMINT - https://polkadot-asset-hub-rpc.polkadot.io/
 - WESTMINT - https://westend-asset-hub-rpc.polkadot.io/
 - KUSAMA - https://kusama-rpc.polkadot.io
+
+## Hints
+
+If you have a list of addresses in your clipboard, you can use the following command to create `drop.txt` file:
+
+```bash
+pbpaste | sort | uniq | xargs -I{} echo '- {}' > drop.txt
+```
