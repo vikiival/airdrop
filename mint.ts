@@ -61,6 +61,11 @@ export const asSystemRemark = (api: ApiPromise, remark: string) => {
   return set
 }
 
+export const setAttribute = (api: ApiPromise, collectionId: string, nextId: string, key: string, value: string) => {
+  const set = api.tx.nfts.setAttribute(collectionId, nextId, { CollectionOwner: null }, key, value)
+  return set
+}
+
 const buildBatch = (api: ApiPromise, calls: Call[]) => {
   const batch = api.tx.utility.batchAll(calls)
   return batch  
