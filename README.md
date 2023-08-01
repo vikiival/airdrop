@@ -35,3 +35,20 @@ If you have a list of addresses in your clipboard, you can use the following com
 ```bash
 pbpaste | sort | uniq | xargs -I{} echo '- {}' > drop.txt
 ```
+
+If you need to split drop into multiple files, you can use the following command:
+
+
+```bash
+split -l 500 -d drop.txt drop_
+````
+
+## Errors
+
+**1. `RPC-CORE: submitExtrinsic(extrinsic: Extrinsic): Hash:: [413]: Payload Too Large`**
+
+You are sending too many transactions at once. Try to reduce the number of transactions in `drop.txt` file.
+
+**2. `RPC-CORE: submitExtrinsic(extrinsic: Extrinsic): Hash:: 1010: Invalid Transaction: Transaction would exhaust the block limits`**
+
+You are sending too many transactions at once. Try to reduce the number of transactions in `drop.txt` file.
